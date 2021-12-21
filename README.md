@@ -247,7 +247,7 @@ Visual Studio 2017 (Win 10)
 Visual Studio 2019 (Win 10)
 ```
 
-If you build *redis-plus-plus* with `-DREDIS_PLUS_PLUS_BUILD_TEST=ON` (the default behavior, and you can disable building test with `-DREDIS_PLUS_PLUS_BUILD_TEST=OFF`), you'll get a test program in *compile/test* directory: *compile/test/test_redis++*.
+If you build *redis-plus-plus* with `-DREDIS_PLUS_PLUS_BUILD_TEST=ON` (the default behavior, and you can disable building test with `-DREDIS_PLUS_PLUS_BUILD_TEST=OFF`), you'll get a test program in *build/test* directory: *build/test/test_redis++*.
 
 In order to run the tests, you need to set up a Redis instance, and a Redis Cluster. Since the test program will send most of Redis commands to the server and cluster, you need to set up Redis of the latest version (by now, it's 5.0). Otherwise, the tests might fail. For example, if you set up Redis 4.0 for testing, the test program will fail when it tries to send the `ZPOPMAX` command (a Redis 5.0 command) to the server. If you want to run the tests with other Redis versions, you have to comment out commands that haven't been supported by your Redis, from test source files in *redis-plus-plus/test/src/sw/redis++/* directory. Sorry for the inconvenience, and I'll fix this problem to make the test program work with any version of Redis in the future.
 
